@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanchonete Estágiolanches</title>
+    <link rel="stylesheet" href="estilizacao.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="img/banner.png" alt="Nome da Lanchonete" class="banner">
+        </header>
+        <nav>
+            <ul>
+                <li class="ativo"><a href="#" onclick="mostrarSecao('lanches')">Lanches</a></li>
+                <li><a href="#" onclick="mostrarSecao('pizzas')">Pizzas</a></li>
+                <li><a href="#" onclick="mostrarSecao('bebidas')">Bebidas</a></li>
+            </ul>
+        </nav>
+        <main id="conteudo">
+            <div id="lanches" class="secao">
+                <div class="item">
+                    <img src="img/misto.png" alt="Misto">
+                    <div class="info">
+                        <h2>Misto</h2>
+                        <p>R$ 5,00</p>
+                        <p>Pão, queijo e presunto</p>
+                        <button onclick="adicionarAoCarrinho('Misto', 'R$ 5,00')">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/hamburguer.png" alt="Hamburguer">
+                    <div class="info">
+                        <h2>Hamburguer</h2>
+                        <p>R$ 8,00</p>
+                        <p>Pão, carne, alface, tomate, milho e batata</p>
+                        <button onclick="adicionarAoCarrinho('Hamburguer', 'R$ 8,00')">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/xburguer.png" alt="X Burguer">
+                    <div class="info">
+                        <h2>X Burguer</h2>
+                        <p>R$ 10,00</p>
+                        <p>Pão, carne, queijo, alface, tomate, milho e batata</p>
+                        <button onclick="adicionarAoCarrinho('X Burguer', 'R$ 10,00')">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+            <div id="pizzas" class="secao" style="display:none;">
+                <div class="item">
+                    <img src="img/pizzamargherita.png" alt="Pizza Margherita">
+                    <div class="info">
+                        <h2>Pizza Margherita</h2>
+                        <p>R$ 25,00</p>
+                        <p>Molho de tomate, mussarela, manjericão</p>
+                        <button onclick="adicionarAoCarrinho('Pizza Margherita', 'R$ 25,00')">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/pizzacalabresa.png" alt="Pizza Calabresa">
+                    <div class="info">
+                        <h2>Pizza Calabresa</h2>
+                        <p>R$ 30,00</p>
+                        <p>Molho de tomate, mussarela, calabresa, cebola</p>
+                        <button onclick="adicionarAoCarrinho('Pizza Calabresa', 'R$ 30,00')">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/pizzaportuguesa.png" alt="Pizza Portuguesa">
+                    <div class="info">
+                        <h2>Pizza Portuguesa</h2>
+                        <p>R$ 35,00</p>
+                        <p>Molho de tomate, mussarela, presunto, ovo, cebola, azeitona</p>
+                        <button onclick="adicionarAoCarrinho('Pizza Portuguesa', 'R$ 35,00')">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+            <div id="bebidas" class="secao" style="display:none;">
+                <div class="item">
+                    <img src="img/coca-cola.png" alt="Coca-Cola">
+                    <div class="info">
+                        <h2>Coca-Cola</h2>
+                        <p>R$ 5,00</p>
+                        <p>Refrigerante de cola</p>
+                        <button onclick="adicionarAoCarrinho('Coca-Cola', 'R$ 5,00')">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/pepsi.png" alt="Pepsi">
+                    <div class="info">
+                        <h2>Pepsi</h2>
+                        <p>R$ 5,00</p>
+                        <p>Refrigerante de cola</p>
+                        <button onclick="adicionarAoCarrinho('Pepsi', 'R$ 5,00')">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/água.png" alt="Água">
+                    <div class="info">
+                        <h2>Água</h2>
+                        <p>R$ 2,00</p>
+                        <p>Água mineral</p>
+                        <button onclick="adicionarAoCarrinho('Água', 'R$ 2,00')">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <a href="#" class="carrinho" onclick="abrirCarrinho()">
+                <img src="img/carrinho.png" alt="Carrinho" class="icone-carrinho">
+            </a>
+        </footer>
+    </div>
+
+    <div id="carrinho-janela" class="janela">
+        <div class="conteudo">
+            <div class="cabecalho">
+                <h2>Carrinho de Compras</h2>
+                <button onclick="fecharCarrinho()">X</button>
+            </div>
+            <div class="corpo">
+                <!-- espaço para itens selecionados -->
+            </div>
+            <div class="rodape">
+                <button class="cancelar" onclick="fecharCarrinho()">Continuar Comprando</button>
+                <button onclick="finalizarPedido()">Finalizar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="finalizar-janela" class="janela">
+        <div class="conteudo">
+            <div class="cabecalho">
+                <h2>Finalizar Pedido</h2>
+                <button onclick="fecharFinalizar()">X</button>
+            </div>
+            <div class="corpo">
+                <form id="form-finalizar">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro" name="bairro" list="bairros" required>
+                    <datalist id="bairros">
+                        <option value="Centro">
+                        <option value="Acaiaca">
+                        <option value="Monte Aghá">
+                        <option value="Niterói">
+                        <option value="Tamarindo">
+                        <option value="Itaputanga">
+                        <option value="Céu Azul">
+                        <option value="Lago Azul">
+                    </datalist>
+                    <label for="pagamento">Forma de Pagamento:</label>
+                    <select id="pagamento" name="pagamento" required>
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="Pix">Pix</option>
+                        <option value="Cartão">Cartão</option>
+                    </select>
+                    <div id="troco" style="display: none;">
+                        <label for="troco-valor">Troco para quanto?</label>
+                        <input type="text" id="troco-valor" name="troco-valor">
+                    </div>
+                </form>
+            </div>
+            <div class="rodape">
+                <button class="cancelar" onclick="fecharFinalizar()">Cancelar</button>
+                <button onclick="enviarPedido()">Enviar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="notificacao" class="notificacao"></div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
